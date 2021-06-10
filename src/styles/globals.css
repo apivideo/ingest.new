@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "JetBrainsMono";
+  font-weight: 500;
+  src:  url("/fonts/jetbrains-mono/JetBrainsMono-Medium.woff2") format("woff2"),
+        url("/fonts/jetbrains-mono/JetBrainsMono-Medium.woff") format("woff"),
+        url("/fonts/jetbrains-mono/JetBrainsMono-Medium.eot") format("eot");
+}
+
 html,
 body {
   padding: 0;

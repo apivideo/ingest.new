@@ -14,7 +14,9 @@ export default function Home() {
   const inputRef = useRef(null);
   const [uploadProgress, setProgress] = useState(0);
   const [uploadResponse, setUploadResponse] = useState(false);
-  const url = "https://ws.api.video/upload?token=to1YSecZMRjrvDGxSfVFTNhG";
+  const [chunkInformation, setChunkInformation] = useState(false);
+  const [VideoInformation, setVideoInformation] = useState(false);
+  const url = "https://ws.api.video/upload?token=to1R5LOYV0091XN3GQva27OS";
   let chunkCounter = 0;
   let videoId = "";
   let playerUrl = "";
@@ -22,8 +24,10 @@ export default function Home() {
   const uploadFile = (file) => {
     const filename = file.name;
     let numberofChunks = Math.ceil(file.size / chunkSize);
-    document.getElementById("video-information").innerHTML =
-      "There will be " + numberofChunks + " chunks uploaded.";
+    setUploadResponse(false);
+    setVideoInformation(
+      "There will be " + numberofChunks + " chunks uploaded."
+    );
     let start = 0;
     chunkCounter = 0;
     videoId = "";
@@ -40,7 +44,7 @@ export default function Home() {
         "i created a chunk of video" + start + "-" + chunkEnd + "minus 1	"
       );
       const chunkForm = new FormData();
-      if (videoId.length > 0) {
+      if (videoId && videoId.length > 0) {
         //we have a videoId
         chunkForm.append("videoId", videoId);
         console.log("added videoId");
@@ -72,14 +76,15 @@ export default function Home() {
               percentComplete / numberofChunks
           );
           setProgress(totalPercentComplete);
-          document.getElementById("chunk-information").innerHTML =
+          setChunkInformation(
             "Chunk # " +
-            chunkCounter +
-            " is " +
-            percentComplete +
-            "% uploaded. Total uploaded: " +
-            totalPercentComplete +
-            "%";
+              chunkCounter +
+              " is " +
+              percentComplete +
+              "% uploaded. Total uploaded: " +
+              totalPercentComplete +
+              "%"
+          );
           //	console.log (percentComplete);
           // ...
         } else {
@@ -105,15 +110,20 @@ export default function Home() {
           //create the new chunk
           createChunk(videoId, start);
         } else {
-          setUploadResponse(resp);
-          Prism.highlightAll();
-          //the video is fully uploaded. there will now be a url in the response
-          playerUrl = resp.assets.player;
-          console.log("all uploaded! Watch here: ", playerUrl);
-          document.getElementById("video-information").innerHTML =
-            "All uploaded! Watch the video <a href='" +
-            playerUrl +
-            "' target='_blank'>here</a>";
+          try {
+            setUploadResponse(resp);
+            Prism.highlightAll();
+            //the video is fully uploaded. there will now be a url in the response
+            playerUrl = resp.assets.player;
+            console.log("all uploaded! Watch here: ", playerUrl);
+            setVideoInformation(
+              "🎉 All uploaded! Watch the video <a href='" +
+                playerUrl +
+                "' target='_blank'>here</a>."
+            );
+          } catch (error) {
+            setVideoInformation(error)
+          }
         }
       };
       oReq.send(chunkForm);
@@ -136,7 +146,7 @@ export default function Home() {
 
   const openFilePicker = () => {
     inputRef.current.click();
-  }
+  };
 
   return (
     <H.Container>
@@ -150,22 +160,20 @@ export default function Home() {
         {isDragActive && <H.DndOverlay>Drop to upload</H.DndOverlay>}
         <H.CTASection>
           <H.HomeCTA>
-            <Image
-              src="/api-video-logo.svg"
-              loading="lazy"
-              width={72}
-              height={72}
-            />
-            <H.Title id="title">Ingest a video.</H.Title>
-            <p><a href="#">What does ingest mean ?</a></p>
-            <H.TitleCopy>We'll give you a shareable link to stream it.</H.TitleCopy>
-            <div id="action__upload">
-              {/* <Image
-                id="uploadFile__icon"
-                src="/Videos.svg"
-                width={14}
-                height={14}
-              /> */}
+            <Image src="/api-video-logo.svg" width={72} height={72} />
+            <H.Title>
+              Ingest a video<span>.</span>
+            </H.Title>
+            <H.Baseline>
+              <a href="#">What does "Ingest" mean ?</a>
+            </H.Baseline>
+            <p>
+              Quickly upload <em>*any*</em> size video to{" "}
+              <a href="https://api.video">api.video</a> using a delegated token.
+              <br />
+              Upon upload, we'll give you a shareable link to stream it.
+            </p>
+            <H.UploadAction>
               <p>↓ Drag &amp; drop a video file anywhere</p>
               <Button
                 htmlFor="video-file"
@@ -174,7 +182,7 @@ export default function Home() {
                 shadow="hover"
                 onClick={openFilePicker}
               >
-                upload a video
+                Upload a video
               </Button>
               <H.InputFile
                 type="file"
@@ -182,52 +190,88 @@ export default function Home() {
                 ref={inputRef}
                 onChange={fileInputChange}
               />
-            </div>
+            </H.UploadAction>
+            <H.DemoCopy>
+              <p>
+                Get the{" "}
+                <a href="https://github.com/apivideo/uploadavideo">
+                  sample code
+                </a>
+                , and read about{" "}
+                <a href="https://a.video/works/upload-a-video">
+                  how we built the demo.
+                </a>
+                <br />
+                More demos at <a href="https://a.video">a.video</a>
+              </p>
+            </H.DemoCopy>
           </H.HomeCTA>
         </H.CTASection>
         <H.CTASection>
-          <p id="video-information"></p>
-          {uploadResponse ? (
-            <>
-              <pre className={"line-numbers"}>
-                <code className="language-json">
-                  {JSON.stringify({ uploadResponse }, 0, 2)}
-                </code>
-              </pre>
-              <pre className={"line-numbers"}>
-                <code className="language-html">
-                { uploadResponse.assets.iframe }
-                </code>
-              </pre>
-            </>
-          ) : <>
-          <p>
-            Quickly upload <em>*any*</em> size video to{" "}
-            <a href="https://api.video">api.video</a> using a delegated token.
-            <br />
-            Upon upload, you'll have a link that can be used for sharing.
-          </p>
-          <p id="chunk-information"></p>
-          </>}
+          {(uploadResponse || VideoInformation || chunkInformation) && (
+            <H.UploadNotification>
+              {uploadResponse ? (
+                <Image
+                  id="uploadFile__icon"
+                  src="/Videos.svg"
+                  width={16}
+                  height={16}
+                />
+              ) : (
+                <>
+                  {uploadProgress && (
+                    <H.UploadPercentage>{uploadProgress}%</H.UploadPercentage>
+                  )}
+                </>
+              )}
+              <div>
+                {VideoInformation && (
+                  <p dangerouslySetInnerHTML={{ __html: VideoInformation }} />
+                )}
+                {chunkInformation && (
+                  <p dangerouslySetInnerHTML={{ __html: chunkInformation }} />
+                )}
+              </div>
+            </H.UploadNotification>
+          )}
+          {uploadResponse && uploadResponse.assets && (
+            <H.UploadResult>
+              <div>
+                <H.IframeDemo src={uploadResponse.assets.player} />
+                <p>Embed your video :</p>
+                <pre className={"line-numbers"}>
+                  <code className="language-html">
+                    {uploadResponse.assets.iframe}
+                  </code>
+                </pre>
+                <p>Share your video with this link :</p>
+                <pre>
+                  <code className="language-html">
+                    {uploadResponse.assets.player}
+                  </code>
+                </pre>
+              </div>
+              <div>
+                <pre className={"line-numbers"}>
+                  <code className="language-json">
+                    {JSON.stringify({ uploadResponse }, 0, 2)}
+                  </code>
+                </pre>
+              </div>
+            </H.UploadResult>
+          )}
         </H.CTASection>
       </H.Main>
       <H.Footer>
         <p>
-          This app was created with <a href="https://api.video">api.video</a>.
-          <br />
+          <strong>
+            This app was created with <a href="https://api.video">api.video</a>.
+          </strong>
+        </p>
+        <p>
           The end-to-end solution which enables you to easily build, scale and
           operate on-demand and live streaming videos in your app, software or
           platform.
-          <br />
-          Get the{" "}
-          <a href="https://github.com/apivideo/uploadavideo">sample code</a>,
-          and read about{" "}
-          <a href="https://a.video/works/upload-a-video">
-            how we built the demo.
-          </a>
-          <br />
-          More sample apps can be found at <a href="https://a.video">a.video</a>
-          .
         </p>
       </H.Footer>
     </H.Container>

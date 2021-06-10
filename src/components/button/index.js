@@ -10,9 +10,9 @@ export const Button = styled.button`
     color: '';
     border: 1px solid ${({ theme }) => theme.colors.grey[100]};
     cursor: pointer;
-    font-weight: 600;
-    font-size: ${({ theme }) => theme.text.xl};
-    padding: 16px 16px;
+    font-weight: 500;
+    font-size: ${({ theme }) => theme.text.base};
+    padding: 16px 24px;
     transition: background 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
     ${({ color }) =>
         color === 'dark' &&
