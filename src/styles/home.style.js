@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
+  height: auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,7 +20,8 @@ export const Container = styled.div`
 
 export const Main = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -86,7 +88,7 @@ export const CTASection = styled.section`
   @media screen and (min-width: 880px) {
     height: 100%;
     &:first-child {
-      min-width: 480px;
+      min-width: calc(480px + 6.4rem);
       max-width: 33%;
     }
   }
