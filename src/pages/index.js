@@ -151,7 +151,7 @@ export default function Home() {
   return (
     <H.Container>
       <Head>
-        <title>Ingest a video | Video uploader by api.video</title>
+        <title>Convert a video to an mp4 | Video uploader by api.video</title>
         <meta name="description" content="Upload a video to api.video" />
         <link rel="icon" href="/favicon.ico?v=2" />
       </Head>
@@ -162,16 +162,16 @@ export default function Home() {
           <H.HomeCTA>
             <Image src="/api-video-logo.svg" width={72} height={72} />
             <H.Title>
-              Ingest a video<span>.</span>
+              Convert a video to an mp4<span>.</span>
             </H.Title>
             <H.Baseline>
-              <a href="#">What does "Ingest" mean ?</a>
+              <a href="#">What's an mp4 ?</a>
             </H.Baseline>
             <p>
               Quickly upload <em>*any*</em> size video to{" "}
               <a href="https://api.video">api.video</a> using a delegated token.
               <br />
-              Upon upload, we'll give you a shareable link to stream it.
+              Upon upload, we'll give you an mp4 file.
             </p>
             <H.UploadAction>
               <p>↓ Drag &amp; drop a video file anywhere</p>
