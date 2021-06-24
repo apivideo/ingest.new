@@ -151,7 +151,7 @@ export default function Home() {
   return (
     <H.Container>
       <Head>
-        <title>Ingest a video | Video uploader by api.video</title>
+        <title>Stream a video with HLS | Video uploader by api.video</title>
         <meta name="description" content="Upload a video to api.video" />
         <link rel="icon" href="/favicon.ico?v=2" />
       </Head>
@@ -162,10 +162,10 @@ export default function Home() {
           <H.HomeCTA>
             <Image src="/api-video-logo.svg" width={72} height={72} />
             <H.Title>
-              Ingest a video<span>.</span>
+              Stream a video with HLS<span>.</span>
             </H.Title>
             <H.Baseline>
-              <a href="#">What does "Ingest" mean ?</a>
+              <a href="#">What does HLS "HTTP Live Streaming" mean ?</a>
             </H.Baseline>
             <p>
               Quickly upload <em>*any*</em> size video to{" "}
