@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import Head from "next/head";
-import Image from "next/image";
 import { useDropzone } from "react-dropzone";
 import Prism from "prismjs";
 
@@ -160,7 +159,7 @@ export default function Home() {
         {isDragActive && <H.DndOverlay>Drop to upload</H.DndOverlay>}
         <H.CTASection>
           <H.HomeCTA>
-            <Image src="/api-video-logo.svg" width={72} height={72} />
+            <img src="/api-video-logo.svg" width={72} height={72} />
             <H.Title>
               Convert a video to an mp4<span>.</span>
             </H.Title>
