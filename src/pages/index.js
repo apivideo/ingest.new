@@ -168,16 +168,16 @@ export default function Home() {
           <H.HomeCTA>
             <img src="/api-video-logo.svg" width="72" height="72" />
             <H.Title>
-              Ingest a video<span>.</span>
+              Embed a video<span>.</span>
             </H.Title>
             <H.Baseline>
-              <a href="https://api.video/what-is/ingest">What does "Ingest" mean ?</a>
+              <a href="#">What does "Embed" mean ?</a>
             </H.Baseline>
             <p>
               Quickly upload <em>*any*</em> size video to{" "}
               <a href="https://api.video">api.video</a> using a delegated token.
               <br />
-              Upon upload, we'll give you a shareable link to stream it.
+              Upon upload, we'll give you an embedable iframe.
             </p>
             <H.UploadAction>
               <p>↓ Drag &amp; drop a video file anywhere</p>
