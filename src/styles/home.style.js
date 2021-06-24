@@ -158,8 +158,10 @@ export const Footer = styled.footer`
   width: 100%;
   font-size: ${({ theme }) => theme.text.sm};
   padding: 0 ${({ theme }) => theme.spacing.xl};
-  p {
-    min-width: 480px;
-    max-width: 33%;
+  @media screen and (min-width: 880px) {
+    > p {
+      min-width: 480px;
+      max-width: 33%;
+    }
   }
 `;

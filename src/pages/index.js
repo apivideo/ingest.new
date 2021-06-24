@@ -151,7 +151,7 @@ export default function Home() {
   return (
     <H.Container>
       <Head>
-        <title>Upload a video</title>
+        <title>Ingest a video | Video uploader by api.video</title>
         <meta name="description" content="Upload a video to api.video" />
         <link rel="icon" href="/favicon.ico?v=2" />
       </Head>
@@ -194,7 +194,7 @@ export default function Home() {
             <H.DemoCopy>
               <p>
                 Get the{" "}
-                <a href="https://github.com/apivideo/uploadavideo">
+                <a href="https://github.com/apivideo/ingest.new">
                   sample code
                 </a>
                 , and read about{" "}
@@ -265,13 +265,13 @@ export default function Home() {
       <H.Footer>
         <p>
           <strong>
-            This app was created with <a href="https://api.video">api.video</a>.
-          </strong>
+            This app was created with <a href="https://api.video">api.video</a>
+          </strong> | <a href="https://api.video/terms-and-conditions">Terms</a>
         </p>
         <p>
           The end-to-end solution which enables you to easily build, scale and
           operate on-demand and live streaming videos in your app, software or
-          platform.
+          platform. <a href="https://my.api.video/register">Get started today</a>
         </p>
       </H.Footer>
     </H.Container>
