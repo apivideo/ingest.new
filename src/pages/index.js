@@ -171,11 +171,7 @@ export default function Home() {
               Convert a video to an mp4<span>.</span>
             </H.Title>
             <H.Baseline>
-<<<<<<< HEAD
               <a href="https://api.video/what-is/mp4">What's an mp4 ?</a>
-=======
-              <a href="https://api.video/what-is/ingest">What does "Ingest" mean ?</a>
->>>>>>> 3175ef9 (feat(copy): add glossary link)
             </H.Baseline>
             <p>
               Quickly upload <em>*any*</em> size video to{" "}
