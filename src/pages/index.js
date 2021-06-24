@@ -15,6 +15,7 @@ export default function Home() {
   const [uploadResponse, setUploadResponse] = useState(false);
   const [chunkInformation, setChunkInformation] = useState(false);
   const [VideoInformation, setVideoInformation] = useState(false);
+  const [iframeKey, setIframeKey] = useState(0);
   const url = "https://ws.api.video/upload?token=to1R5LOYV0091XN3GQva27OS";
   let chunkCounter = 0;
   let videoId = "";
@@ -133,6 +134,10 @@ export default function Home() {
     uploadFile(e.target.files[0]);
   };
 
+  const refreshIframe = () => {
+    setIframeKey(iframeKey + 1);
+  };
+
   const { getRootProps, isDragActive } = useDropzone({
     onDrop: (file) => {
       uploadFile(file[0]);
@@ -236,7 +241,8 @@ export default function Home() {
           {uploadResponse && uploadResponse.assets && (
             <H.UploadResult>
               <div>
-                <H.IframeDemo src={uploadResponse.assets.player} />
+                <H.IframeDemo src={uploadResponse.assets.player} key={iframeKey}/>
+                <H.RefreshButton onClick={refreshIframe}>Refresh Video</H.RefreshButton>
                 <p>Embed your video :</p>
                 <pre className={"line-numbers"}>
                   <code className="language-html">
