@@ -210,7 +210,7 @@ export default function Home() {
           {(uploadResponse || VideoInformation || chunkInformation) && (
             <H.UploadNotification>
               {uploadResponse ? (
-                <Image
+                <img
                   id="uploadFile__icon"
                   src="/Videos.svg"
                   width={16}
