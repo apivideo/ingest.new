@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { Button } from "../components/button";
+
 export const Container = styled.div`
   width: 100vw;
   height: auto;
@@ -91,6 +93,9 @@ export const CTASection = styled.section`
       min-width: calc(480px + 6.4rem);
       max-width: 33%;
     }
+    &:last-child {
+      padding-left: 0;
+    }
   }
 `;
 
@@ -122,6 +127,7 @@ export const UploadResult = styled.div`
     > div {
       width: calc(50% - 0.5rem);
       flex: 1;
+      padding: 0 .5rem;
     }
   }
 `;
@@ -167,3 +173,9 @@ export const Footer = styled.footer`
     }
   }
 `;
+
+export const RefreshButton = styled(Button)`
+  width: 100%;
+  padding: 8px;
+`
+
