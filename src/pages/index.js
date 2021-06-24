@@ -157,7 +157,7 @@ export default function Home() {
   return (
     <H.Container>
       <Head>
-        <title>Ingest a video | Video uploader by api.video</title>
+        <title>Embed a video | Video uploader by api.video</title>
         <meta name="description" content="Upload a video to api.video" />
         <link rel="icon" href="/favicon.ico?v=2" />
       </Head>
