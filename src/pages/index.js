@@ -4,6 +4,7 @@ import { useDropzone } from "react-dropzone";
 import Prism from "prismjs";
 
 import { Button } from "../components/button";
+import CopyCode from "../components/copyCode";
 import * as H from "../styles/home.style.js";
 
 //break into 1 MB chunks for demo purposes
@@ -244,17 +245,9 @@ export default function Home() {
                 <H.IframeDemo src={uploadResponse.assets.player} key={iframeKey}/>
                 <H.RefreshButton onClick={refreshIframe}>Refresh Video</H.RefreshButton>
                 <p>Embed your video :</p>
-                <pre className={"line-numbers"}>
-                  <code className="language-html">
-                    {uploadResponse.assets.iframe}
-                  </code>
-                </pre>
+                <CopyCode code={uploadResponse.assets.iframe}/>
                 <p>Share your video with this link :</p>
-                <pre>
-                  <code className="language-html">
-                    {uploadResponse.assets.player}
-                  </code>
-                </pre>
+                <CopyCode code={uploadResponse.assets.player}/>
               </div>
               <div>
                 <pre className={"line-numbers"}>
