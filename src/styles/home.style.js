@@ -178,4 +178,3 @@ export const RefreshButton = styled(Button)`
   width: 100%;
   padding: 8px;
 `
-
