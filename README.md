@@ -1,11 +1,12 @@
 ![](https://github.com/apivideo/API_OAS_file/blob/master/apivideo_banner.png)
 
-[https://ingest.new](https://ingest.new)
-[https://embed.new](https://embed.new)
-[https://mp4.new](https://mp4.new)
-[https://hls.new](https://hls.new)
+A simple [Next.js](https://nextjs.org) app using the [api.video](https://api.video) service to upload and ingest videos.
 
-A simple [Next.js](https://nextjs.org) app using the api.video service to upload and ingest videos.
+See the examples live:
+- [https://ingest.new](https://ingest.new)
+- [https://embed.new](https://embed.new)
+- [https://mp4.new](https://mp4.new)
+- [https://hls.new](https://hls.new)
 
 ## Getting Started
 
