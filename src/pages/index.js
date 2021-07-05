@@ -170,7 +170,7 @@ export default function Home() {
               Convert a video to an mp4<span>.</span>
             </H.Title>
             <H.Baseline>
-              <a href="#">What's an mp4 ?</a>
+              <a href="https://api.video/what-is/mp4">What's an mp4 ?</a>
             </H.Baseline>
             <p>
               Quickly upload <em>*any*</em> size video to{" "}
