@@ -165,12 +165,16 @@ export default function Home() {
         {isDragActive && <H.DndOverlay>Drop to upload</H.DndOverlay>}
         <H.CTASection>
           <H.HomeCTA>
-            <img src="/api-video-logo.svg" width={72} height={72} />
+            <img src="/api-video-logo.svg" width="72" height="72" />
             <H.Title>
               Convert a video to an mp4<span>.</span>
             </H.Title>
             <H.Baseline>
+<<<<<<< HEAD
               <a href="https://api.video/what-is/mp4">What's an mp4 ?</a>
+=======
+              <a href="https://api.video/what-is/ingest">What does "Ingest" mean ?</a>
+>>>>>>> 3175ef9 (feat(copy): add glossary link)
             </H.Baseline>
             <p>
               Quickly upload <em>*any*</em> size video to{" "}
