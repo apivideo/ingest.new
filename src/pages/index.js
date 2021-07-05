@@ -170,7 +170,7 @@ export default function Home() {
               Stream a video with HLS<span>.</span>
             </H.Title>
             <H.Baseline>
-              <a href="#">What does HLS "HTTP Live Streaming" mean ?</a>
+              <a href="https://api.video/what-is/http-live-streaming-hls">What does HLS "HTTP Live Streaming" mean ?</a>
             </H.Baseline>
             <p>
               Quickly upload <em>*any*</em> size video to{" "}
