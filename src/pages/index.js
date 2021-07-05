@@ -171,7 +171,7 @@ export default function Home() {
               Embed a video<span>.</span>
             </H.Title>
             <H.Baseline>
-              <a href="#">What does "Embed" mean ?</a>
+              <a href="https://api.video/what-is/embed">What does "Embed" mean ?</a>
             </H.Baseline>
             <p>
               Quickly upload <em>*any*</em> size video to{" "}
