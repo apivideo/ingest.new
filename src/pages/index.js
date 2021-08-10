@@ -8,7 +8,8 @@ import CopyCode from "../components/copyCode";
 import * as H from "../styles/home.style.js";
 
 //break into 1 MB chunks for demo purposes
-const chunkSize = 1000000;
+//6MB for new api.video s3 storage
+const chunkSize = 6000000;
 
 export default function Home() {
   const inputRef = useRef(null);
