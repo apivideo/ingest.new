@@ -28,4 +28,5 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+- [api.video Documentation](https://api.video/docs) - learn about api.video features and how to use.
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
