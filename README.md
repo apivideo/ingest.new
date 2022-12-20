@@ -4,7 +4,7 @@
 
 [![badge](https://img.shields.io/discourse/topics?server=https%3A%2F%2Fcommunity.api.video)](https://community.api.video)
 
-![](https://github.com/apivideo/API_OAS_file/blob/master/apivideo_banner.png)
+![](https://github.com/apivideo/.github/blob/main/assets/apivideo_banner.png)
 
 [api.video](https://api.video) provides video APIs for building, scaling and operating on-demand and live streaming videos in your app, software or platform. 
 
